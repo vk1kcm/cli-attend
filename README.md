@@ -14,6 +14,8 @@ that line to the attendancelist file.
 It doesn't have to be members, it literaly can be anything that is line based.  In our case 
 I'm using a csv file.
 
+The search field is using the python regexp library, so can be a regular expression, if you're that insane...
+
 This readme is already larger than the script itself.
 
 
