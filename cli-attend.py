@@ -20,6 +20,7 @@ members = memberfile.readlines()
 memberfile.close()
 
 query = ""
+found = []
 
 while (True):
     print("")
@@ -30,12 +31,18 @@ while (True):
         result = re.search(query, members[i], re.IGNORECASE)
         if result:
             print("(", i, ") ", members[i])
+            found.append(i)
+
 
     r = input("Enter number of found attendee (or <enter> if not found): ")
     if (r !=""):
         rpos = int(r)
-        attendeefile.write(members[rpos])
-        print(members[rpos].rstrip(), "marked as attending.")
+        if rpos in found:
+            attendeefile.write(members[rpos])
+            print(members[rpos].rstrip(), "marked as attending.")
+        else:
+            print("Incorrect index specified, search again.")
+        found.clear()
 
 attendeefile.close()
 
